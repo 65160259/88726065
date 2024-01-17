@@ -1,16 +1,28 @@
+<!--ระบุว่าเป็นไฟล์ html-->
 <!DOCTYPE html>
+<!--ระบุภาษา-->
 <html lang="en">
-    <haed>
+<!--ระบุส่วนหัวของ html-->
+    <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=dervice-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo</title>
         <link rel="stylesheet" href="styles.css" />
-    </haed>
+    </head>
+<!--ระบุส่วน body ของ html-->
     <body>
+        <!--h1 หัวข้อหลัก-->
         <h1>Todo Lists</h1>
-        <input type="text" id="todo-input" placeholder="เพิ่มรายการใหม่" />
+        <!--กล่อง input สำหรับใส่ข้อมูล-->
+        <input type="text" id="todo-input" placeholder="เพิ่มรายการใหม"่ />
+        <!--แสดงปุ่ม-->
         <button id="add-button">เพิ่ม</button>
-        <ul id="todo-list"></ul>
-        <script src=scripts.js></script>
+        <!--comment แสดงข้อมูลที่เพิ่ม-->
+        <ul id="todo-list">
+        <!-- รายการที่เพิ่มจะแสดงที่นี่ -->
+        </ul>
+        <!--เชื่อมกับไฟล์ต่างๆ-->
+        <script src="scripts.js"></script>
     </body>
 </html>
+
