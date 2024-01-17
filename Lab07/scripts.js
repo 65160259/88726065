@@ -1,8 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const todoList = document.getElementById("todo-list");
     const todoInput = document.getElementById("todo-input");
     const addButton = document.getElementById("add-button");
-    // อาร์เรย์ส าหรับเก็บรายการ Todo
+    // อาร์เรย์สำหรับเก็บรายการ Todo
     let todos = [];
     // เพิ่มรายการ Todo
     function addTodo() {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         todoInput.value = "";
         }
     }
-    // ลบรายการ Todo
+    // ลบรายการ Todo โดยใช้ splicing เป็นการลบหรือแทนที่
     function deleteTodo(index) {
         todos.splice(index, 1);
         renderTodoList();
@@ -40,17 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
             listItem.classList.add("completed");
             }
             const deleteButton = document.createElement("button");
-            deleteButton.textContent = "ลบ";
+            deleteButton.textContent = "ลบ"; //ปุ่มลบ
             deleteButton.addEventListener("click", () => deleteTodo(i));
             const completeButton = document.createElement("button");
-            completeButton.textContent = todoItem.completed ? "ยกเลิก" : "เสร็จ";
+            completeButton.textContent = todoItem.completed ? "ยกเลิก" : "เสร็จ"; //ปุ่มเสร็จและยกเลิก
             completeButton.addEventListener("click", () => toggleComplete(i));
             listItem.appendChild(completeButton);
             listItem.appendChild(deleteButton);
             todoList.appendChild(listItem);
         }
     }
-    // การกดปุ่ ม "เพิ่ม"
+    // การกดปุ่ม "เพิ่ม"
     addButton.addEventListener("click", addTodo);
     // การกด Enter ใน input
     todoInput.addEventListener("keypress", function (event) {
