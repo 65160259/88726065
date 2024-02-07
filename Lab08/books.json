@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Genshin",
+    "price": "500",
+    "author": [
+      "Kokomi"
+
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Honkai Starrail",
+    "price": "120",
+    "author": [
+      "FuXuan",
+      "HuoHuo"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Rov",
+    "price": "1500",
+    "author": [
+      "Liliana"
+
+    ]
+  }
+]
