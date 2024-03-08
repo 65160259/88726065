@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a class="active" href="index.html"></i> รูปสุนัขของฉันทั้งหมด</a>
+        <a class="active" href="uploaddog.html"></i> อัพโหลดรูปสุนัข</a>
+    </div>
+    <div class="content">
+        <center>
+            <h2>อัพโหลดรูปสุนัขของฉัน</h2>
+        </center>
+        <center>
+            <div id="uploadResults"></div>
+        </center>
+        <form onsubmit="uploadImage(); return false;">
+            <label for="file-upload"></i> เลือกไฟล์รูปภาพสุนัข</label>
+            <input type="file" id="file-upload" name="file-upload" accept="image/*" onchange="fileAttached()">
+            <div class="filename" id="filename"></div>
+            <input type="submit" value="อัพโหลด">
+        </form>
+    </div>
+
+</body>
+<script>
+    const API_URL = "https://api.thedogapi.com/v1/";
+    const API_KEY =
+        "live_DrCMBmtMFU2p1h7B5kP3z7Rx3cqkilyijiYiYlX4MmjdvkIw9KPDzyFmOcGjFPzh";
+
+    function uploadImage() {
+        const fileInput = document.getElementById("file-upload");
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+
+        fetch(`${API_URL}images/upload`, {
+            method: "POST",
+            headers: {
+                "x-api-key": API_KEY,
+            },
+            body: formData,
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            window.location.href = "index.html"
+        })
+        .catch((error) => {
+            alert("เกิดข้อผิดพลาด " + error)
+        });
+    }
+    function fileAttached() {
+        var input = document.getElementById('file-upload');
+
+        console.log(input.textContent);
+
+        var file = input.files[0];
+
+        console.log(file);
+
+        if (file) {
+            document.querySelector('label[for="file-upload"]').textContent = file.name;
+        }
+    }
+
+</script>
+
+</html>
